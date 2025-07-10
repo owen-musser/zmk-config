@@ -17,8 +17,6 @@
 
         default_layer {
             bindings = <
-                &kp N1    &kp N2    &kp N3    &kp N4    &kp N5
-                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
                 &kp R     &kp S     &kp N     &kp I     &kp SPACE
                 &kp A     &kp O     &kp T     &kp E     &kp BACKSPACE
             >;
@@ -346,18 +344,12 @@
         };
         combo_FN { // This would typically be a layer key, but can be a one-shot
             bindings = <&kp F24>; // Placeholder, FN usually switches layers. If it's a specific keycode.
-            // If FN is meant to activate a Function layer, change to &mo <FN_LAYER_ID>
+            // If FN is meant to ctivate a Function layer, change to &mo <FN_LAYER_ID>
             key-positions = <&ks &kn &ki &kbksp>; // s + n + i + backspace
         };
 
         // --- Macro (for 0-9) ---
-        // ZMK's &macro behavior can be used to send multiple keycodes.
-        // This example just shows a simple macro, you'd extend it for specific sequences.
-        // Note: Your request "MACRO = a + o + t + e (0-9)" is ambiguous.
-        // Does it mean pressing a+o+t+e *then* pressing 0-9?
-        // Or does a+o+t+e itself output the numbers 0-9 in sequence?
-        // I'll make a placeholder for a single macro behavior.
-        // If it means a layer for numbers, you'd define a new layer.
+
         macro_0_9 {
             // This macro sends "MACRO ACTIVATED" then "0123456789" as example
             // You'll need to define what these macros actually DO.
