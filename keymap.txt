@@ -1,0 +1,118 @@
+DEFAULT LAYER
+----------------------------
+LEFT
+[1][2][3][4][5]
+[6][7][8][9][10]
+
+[r][s][n][i][space]
+[a][o][t][t][backspace]
+
+GPIO
+1 - 9
+2 - 8 
+3 - 7
+4 - 6
+5 - 12
+6 - 13
+7 - 12
+8 - 11
+9 - 10
+10 - 13
+
+COMBOS
+A = a
+B = r + s 
+C = o + e
+D = a + e
+E = e
+F = s + i
+G = r + i
+H = t + e
+I = i
+J = a + n
+K = o + i
+L = a + o
+M = r + e 
+N = n
+O = o
+P = s + n
+Q = a + t
+R = r
+S = s
+T = t
+U = o + t
+V = s + e
+W = a + i
+X = r + t
+Y = n + i
+Z = r + n
+
+0 = e + t + space
+1 = e + o + space
+2 = t + o + space
+3 = t + a + space
+4 = o + a + space
+5 = i + n + space
+6 = i + s + space
+7 = n + s + space
+8 = n + r + space
+9 = s + r + space
+
+( = e + backspace
+) = i + backspace
+[ = t + backspace
+] = n + backspace
+{ = o + backspace
+} = s + backspace
+< = a + backspace
+> = r + backspace
+
+# = r + i + backspace
+^ = r + t + backspace
+* = a + n + backspace
+$ = r + e + backspace
+\ = o + i + space
+| = o + i + backspace
+/ = o + i
+: = r + O
+; = r + o + space
+, = n + e
+. = n + e + space
+~ = n + e + backspace
+@ = a + e + backspace
++ = o + i + backspace
+= = a + n + backspace
+& = a + i + backspace
+- = o + n
+_ = o + n + space
+% = o + n + backspace
+? = t + i
+! = t + i + space
+' = a + s
+" = a + s + space
+` = a + s + backspace
+
+TAB = s + n + i
+ENTER = o + t + e 
+ESC = o + t + e + space
+LEFT = o + space
+UP = n + space
+RIGHT = e + space
+DOWN = t + space
+LAYER SWITCH = r + s + n + i
+
+ONE SHOT KEYS
+GUI = e + i
+CTRL = t + n
+ALT = o + s
+SHIFT = a + r
+DEL = s + n + i + space
+FN = s + n + i + backspace
+MACRO = a + o + t + e (0-9)
+
+GAMING LAYER
+----------------------------
+[esc][s][w][t][space]
+[shift][a][s][d][backspace]
+
+
