@@ -1,373 +1,483 @@
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/behaviors.h>
-
-// Define our layer IDs
-#define DEFAULT 0
-#define GAMING 1
-
-// --- Combo Definitions ---
-// Note: ZMK evaluates combos based on physical key presses, not what they output in a layer.
-// So, 'r' here refers to the physical key 'kr' (defined in the .dts), not the R keycode.
-// Use &kp for key presses, &rgb_tog for RGB toggling, etc.
+#include <dt-bindings/zmk/matrix.h>
+#include <dt-bindings/zmk/hid_usage.h>
+#include <dt-bindings/zmk/modifiers.h>
 
 / {
-    keymap {
-        compatible = "zmk,keymap";
-
-        default_layer {
-            bindings = <
-                &kp R     &kp S     &kp N     &kp I     &kp SPACE
-                &kp A     &kp O     &kp T     &kp E     &kp BACKSPACE
-            >;
-        };
-
-        gaming_layer {
-            bindings = <
-                &kp ESC   &kp S     &kp W     &kp T     &kp SPACE
-                &kp LSHIFT &kp A    &kp S     &kp D     &kp BACKSPACE
-            >;
+    behaviors {
+        // One-shot modifier behavior definitions
+        // You can add &caps_word, &kp_lpar etc. as needed if you use them.
+        // &mod acts as a one-shot modifier. For example, &mod LSHFT means Left Shift as a one-shot.
+        os_gui: os_gui {
+            compatible = "zmk,behavior-mod";
+            bindings = <&kp LC(RA(LG(N0)))>; // Placeholder, will be replaced with actual &mod LGUI
         };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        // --- Alphabet Combos ---
-        // Your layout lists A=a, I=i, N=n, O=o, R=r, S=s, T=t, E=e (implicitly)
-        // These are already handled by the base layer.
-        // We'll define the multi-key combos.
+        // Define ZMK_KEY_POSITION_<NAME> for clarity in combo definitions
+        // These are just labels for your internal 0-9 positions based on your layout
+        // ZMK internally maps them 0, 1, 2, ...
+        // KP_R: Key 1 -> 0
+        // KP_S: Key 2 -> 1
+        // KP_N: Key 3 -> 2
+        // KP_I: Key 4 -> 3
+        // KP_SPACE: Key 5 -> 4
+        // KP_A: Key 6 -> 5
+        // KP_O: Key 7 -> 6
+        // KP_T1: Key 8 (first t) -> 7
+        // KP_T2: Key 9 (second t) -> 8
+        // KP_BSPC: Key 10 -> 9
 
-        combo_B {
+        // ----------------------------------------------------
+        // Base Key Position Mapping for Combos (for readability)
+        // These are not part of the ZMK config, just for your reference here
+        #define KP_R 0
+        #define KP_S 1
+        #define KP_N 2
+        #define KP_I 3
+        #define KP_SPACE 4
+        #define KP_A 5
+        #define KP_O 6
+        #define KP_T1 7
+        #define KP_T2 8
+        #define KP_BSPC 9
+        // ----------------------------------------------------
+
+        // Primary definition for 'e' - ARBITRARY: CHANGE THIS!
+        // Assuming e = n + i (Key 3 + Key 4 -> Pos 2 + Pos 3)
+        combo_e: combo_e {
+            timeout-ms = <50>; // Adjust as needed
+            key-positions = <KP_N KP_I>;
+            bindings = <&kp E>;
+        };
+
+        // ALPHABETICAL COMBOS
+        // 'A' - 'T' are base keys. Assuming these are single key presses.
+        // A = a (Redundant if 'a' is a base key, not needed as a combo)
+        // E = e (Defined above, it's ZMK_KC_E from n+i)
+        // I = i (Redundant)
+        // N = n (Redundant)
+        // O = o (Redundant)
+        // R = r (Redundant)
+        // S = s (Redundant)
+        // T = t (Redundant)
+
+        combo_b: combo_b {
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_S>;
             bindings = <&kp B>;
-            key-positions = <&kr &ks>; // r + s
         };
-        combo_C {
+        combo_c: combo_c { // C = o + e (o, n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_N KP_I>;
             bindings = <&kp C>;
-            key-positions = <&ko &ke>; // o + e
         };
-        combo_D {
+        combo_d: combo_d { // D = a + e (a, n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_N KP_I>;
             bindings = <&kp D>;
-            key-positions = <&ka &ke>; // a + e
         };
-        combo_F {
+        combo_f: combo_f { // F = s + i
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_I>;
             bindings = <&kp F>;
-            key-positions = <&ks &ki>; // s + i
         };
-        combo_G {
+        combo_g: combo_g { // G = r + i
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_I>;
             bindings = <&kp G>;
-            key-positions = <&kr &ki>; // r + i
         };
-        combo_H {
+        combo_h: combo_h { // H = t + e (t1, n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_N KP_I>;
             bindings = <&kp H>;
-            key-positions = <&kt &ke>; // t + e
         };
-        combo_J {
+        combo_j: combo_j { // J = a + n
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_N>;
             bindings = <&kp J>;
-            key-positions = <&ka &kn>; // a + n
         };
-        combo_K {
+        combo_k: combo_k { // K = o + i
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_I>;
             bindings = <&kp K>;
-            key-positions = <&ko &ki>; // o + i
         };
-        combo_L {
+        combo_l: combo_l { // L = a + o
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_O>;
             bindings = <&kp L>;
-            key-positions = <&ka &ko>; // a + o
         };
-        combo_M {
+        combo_m: combo_m { // M = r + e (r, n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_N KP_I>;
             bindings = <&kp M>;
-            key-positions = <&kr &ke>; // r + e
         };
-        combo_P {
+        combo_p: combo_p { // P = s + n
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_N>;
             bindings = <&kp P>;
-            key-positions = <&ks &kn>; // s + n
         };
-        combo_Q {
+        combo_q: combo_q { // Q = a + t
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_T1>;
             bindings = <&kp Q>;
-            key-positions = <&ka &kt>; // a + t
         };
-        combo_U {
+        combo_u: combo_u { // U = o + t
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_T1>;
             bindings = <&kp U>;
-            key-positions = <&ko &kt>; // o + t
         };
-        combo_V {
+        combo_v: combo_v { // V = s + e (s, n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_N KP_I>;
             bindings = <&kp V>;
-            key-positions = <&ks &ke>; // s + e
         };
-        combo_W {
+        combo_w: combo_w { // W = a + i
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_I>;
             bindings = <&kp W>;
-            key-positions = <&ka &ki>; // a + i
         };
-        combo_X {
+        combo_x: combo_x { // X = r + t
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_T1>;
             bindings = <&kp X>;
-            key-positions = <&kr &kt>; // r + t
         };
-        combo_Y {
+        combo_y: combo_y { // Y = n + i (This is also the trigger for 'e'. If you want unique outputs, you need unique triggers)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I>; // **WARNING: This conflicts with 'e' combo_e! Only one will trigger.**
+                                        // You must change one of these combinations if you want both 'Y' and 'e' from distinct triggers.
+                                        // For example, if 'e' is n+i, 'Y' could be n+i+space etc.
             bindings = <&kp Y>;
-            key-positions = <&kn &ki>; // n + i
         };
-        combo_Z {
+        combo_z: combo_z { // Z = r + n
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_N>;
             bindings = <&kp Z>;
-            key-positions = <&kr &kn>; // r + n
         };
 
-        // --- Number Combos (0-9) ---
-        combo_N0 {
+        // NUMBER COMBOS
+        combo_n0: combo_n0 { // 0 = e + t + space (n, i, t1, space)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I KP_T1 KP_SPACE>;
             bindings = <&kp N0>;
-            key-positions = <&ke &kt &kspace>; // e + t + space
         };
-        combo_N1 {
+        combo_n1: combo_n1 { // 1 = e + o + space (n, i, o, space)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I KP_O KP_SPACE>;
             bindings = <&kp N1>;
-            key-positions = <&ke &ko &kspace>; // e + o + space
         };
-        combo_N2 {
+        combo_n2: combo_n2 { // 2 = t + o + space (t1, o, space)
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_O KP_SPACE>;
             bindings = <&kp N2>;
-            key-positions = <&kt &ko &kspace>; // t + o + space
         };
-        combo_N3 {
+        combo_n3: combo_n3 { // 3 = t + a + space (t1, a, space)
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_A KP_SPACE>;
             bindings = <&kp N3>;
-            key-positions = <&kt &ka &kspace>; // t + a + space
         };
-        combo_N4 {
+        combo_n4: combo_n4 { // 4 = o + a + space (o, a, space)
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_A KP_SPACE>;
             bindings = <&kp N4>;
-            key-positions = <&ko &ka &kspace>; // o + a + space
         };
-        combo_N5 {
+        combo_n5: combo_n5 { // 5 = i + n + space (i, n, space)
+            timeout-ms = <50>;
+            key-positions = <KP_I KP_N KP_SPACE>;
             bindings = <&kp N5>;
-            key-positions = <&ki &kn &kspace>; // i + n + space
         };
-        combo_N6 {
+        combo_n6: combo_n6 { // 6 = i + s + space (i, s, space)
+            timeout-ms = <50>;
+            key-positions = <KP_I KP_S KP_SPACE>;
             bindings = <&kp N6>;
-            key-positions = <&ki &ks &kspace>; // i + s + space
         };
-        combo_N7 {
+        combo_n7: combo_n7 { // 7 = n + s + space (n, s, space)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_S KP_SPACE>;
             bindings = <&kp N7>;
-            key-positions = <&kn &ks &kspace>; // n + s + space
         };
-        combo_N8 {
+        combo_n8: combo_n8 { // 8 = n + r + space (n, r, space)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_R KP_SPACE>;
             bindings = <&kp N8>;
-            key-positions = <&kn &kr &kspace>; // n + r + space
         };
-        combo_N9 {
+        combo_n9: combo_n9 { // 9 = s + r + space (s, r, space)
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_R KP_SPACE>;
             bindings = <&kp N9>;
-            key-positions = <&ks &kr &kspace>; // s + r + space
         };
 
-        // --- Parentheses & Brackets Combos ---
-        combo_LPAREN {
-            bindings = <&kp LPAR>;
-            key-positions = <&ke &kbksp>; // e + backspace
+        // SYMBOL COMBOS (with backspace)
+        combo_lprn: combo_lprn { // ( = e + backspace (n, i, bspc)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I KP_BSPC>;
+            bindings = <&kp LPRN>;
         };
-        combo_RPAREN {
-            bindings = <&kp RPAR>;
-            key-positions = <&ki &kbksp>; // i + backspace
+        combo_rprn: combo_rprn { // ) = i + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_I KP_BSPC>;
+            bindings = <&kp RPRN>;
         };
-        combo_LBKT {
+        combo_lbkt: combo_lbkt { // [ = t + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_BSPC>;
             bindings = <&kp LBKT>;
-            key-positions = <&kt &kbksp>; // t + backspace
         };
-        combo_RBKT {
+        combo_rbkt: combo_rbkt { // ] = n + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_BSPC>;
             bindings = <&kp RBKT>;
-            key-positions = <&kn &kbksp>; // n + backspace
         };
-        combo_LBRC {
-            bindings = <&kp LBRC>;
-            key-positions = <&ko &kbksp>; // o + backspace
+        combo_lcbr: combo_lcbr { // { = o + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_BSPC>;
+            bindings = <&kp LCBR>;
         };
-        combo_RBRC {
-            bindings = <&kp RBRC>;
-            key-positions = <&ks &kbksp>; // s + backspace
+        combo_rcbr: combo_rcbr { // } = s + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_BSPC>;
+            bindings = <&kp RCBR>;
         };
-        combo_LT { // <
+        combo_lt: combo_lt { // < = a + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_BSPC>;
             bindings = <&kp LT>;
-            key-positions = <&ka &kbksp>; // a + backspace
         };
-        combo_GT { // >
+        combo_gt: combo_gt { // > = r + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_BSPC>;
             bindings = <&kp GT>;
-            key-positions = <&kr &kbksp>; // r + backspace
         };
 
-        // --- Symbol Combos ---
-        combo_HASH { // #
+        // MORE SYMBOL COMBOS
+        combo_hash: combo_hash { // # = r + i + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_I KP_BSPC>;
             bindings = <&kp HASH>;
-            key-positions = <&kr &ki &kbksp>; // r + i + backspace
         };
-        combo_CARET { // ^
-            bindings = <&kp CARET>;
-            key-positions = <&kr &kt &kbksp>; // r + t + backspace
+        combo_circ: combo_circ { // ^ = r + t + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_T1 KP_BSPC>;
+            bindings = <&kp CIRC>;
         };
-        combo_STAR { // * (Using ASTERISK for ZMK keycode)
-            bindings = <&kp ASTERISK>;
-            key-positions = <&ka &kn &kbksp>; // a + n + backspace
+        combo_star: combo_star { // * = a + n + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_N KP_BSPC>;
+            bindings = <&kp STAR>;
         };
-        combo_DOLLAR { // $
+        combo_dllr: combo_dllr { // $ = r + e + backspace (r, n, i, bspc)
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_N KP_I KP_BSPC>;
             bindings = <&kp DLLR>;
-            key-positions = <&kr &ke &kbksp>; // r + e + backspace
         };
-        combo_BSLS { // \
+        combo_bslash: combo_bslash { // \ = o + i + space
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_I KP_SPACE>;
             bindings = <&kp BSLASH>;
-            key-positions = <&ko &ki &kspace>; // o + i + space
         };
-        combo_PIPE { // |
+        combo_pipe: combo_pipe { // | = o + i + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_I KP_BSPC>;
             bindings = <&kp PIPE>;
-            key-positions = <&ko &ki &kbksp>; // o + i + backspace
         };
-        combo_FSLH { // /
-            bindings = <&kp FSLH>;
-            key-positions = <&ko &ki>; // o + i
+        combo_slash: combo_slash { // / = o + i
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_I>;
+            bindings = <&kp SLASH>;
         };
-        combo_COLON { // :
+        combo_colon: combo_colon { // : = r + O (r + o)
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_O>;
             bindings = <&kp COLON>;
-            key-positions = <&kr &ko>; // r + O (assuming 'O' refers to the key 'o')
-            // If 'O' refers to the number 0, then you'd need a separate combo or behavior.
         };
-        combo_SEMI { // ;
-            bindings = <&kp SEMI>;
-            key-positions = <&kr &ko &kspace>; // r + o + space
+        combo_semicolon: combo_semicolon { // ; = r + o + space
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_O KP_SPACE>;
+            bindings = <&kp SEMICOLON>;
         };
-        combo_COMMA { // ,
+        combo_comma: combo_comma { // , = n + e (n, n, i -> only n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I>; // **WARNING: Conflicts with 'e' and 'Y' again.**
+                                        // You must change one of these combinations.
+                                        // E.g., n + i + s
             bindings = <&kp COMMA>;
-            key-positions = <&kn &ke>; // n + e
         };
-        combo_PERIOD { // .
-            bindings = <&kp PERIOD>;
-            key-positions = <&kn &ke &kspace>; // n + e + space
+        combo_period: combo_period { // . = n + e + space (n, i, space)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I KP_SPACE>;
+            bindings = <&kp DOT>;
         };
-        combo_TILDE { // ~
+        combo_tilde: combo_tilde { // ~ = n + e + backspace (n, i, bspc)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I KP_BSPC>;
             bindings = <&kp TILDE>;
-            key-positions = <&kn &ke &kbksp>; // n + e + backspace
         };
-        combo_AT { // @
+        combo_at: combo_at { // @ = a + e + backspace (a, n, i, bspc)
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_N KP_I KP_BSPC>;
             bindings = <&kp AT>;
-            key-positions = <&ka &ke &kbksp>; // a + e + backspace
         };
-        combo_PLUS { // +
+        combo_plus: combo_plus { // + = o + i + backspace (same as pipe)
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_I KP_BSPC>; // **WARNING: Conflicts with '|'! Only one will trigger.**
             bindings = <&kp PLUS>;
-            key-positions = <&ko &ki &kbksp>; // o + i + backspace (Duplicate with PIPE, verify intent)
         };
-        combo_EQUAL { // =
+        combo_equal: combo_equal { // = = a + n + backspace (same as star)
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_N KP_BSPC>; // **WARNING: Conflicts with '*'! Only one will trigger.**
             bindings = <&kp EQUAL>;
-            key-positions = <&ka &kn &kbksp>; // a + n + backspace (Duplicate with STAR, verify intent)
         };
-        combo_AMPERSAND { // &
+        combo_amp: combo_amp { // & = a + i + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_I KP_BSPC>;
             bindings = <&kp AMPS>;
-            key-positions = <&ka &ki &kbksp>; // a + i + backspace
         };
-        combo_MINUS { // -
+        combo_minus: combo_minus { // - = o + n
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_N>;
             bindings = <&kp MINUS>;
-            key-positions = <&ko &kn>; // o + n
         };
-        combo_UNDERSCORE { // _
-            bindings = <&kp UNDER>;
-            key-positions = <&ko &kn &kspace>; // o + n + space
+        combo_undr: combo_undr { // _ = o + n + space
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_N KP_SPACE>;
+            bindings = <&kp UNDERSCORE>;
         };
-        combo_PERCENT { // %
-            bindings = <&kp PRCNT>;
-            key-positions = <&ko &kn &kbksp>; // o + n + backspace
+        combo_pct: combo_pct { // % = o + n + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_N KP_BSPC>;
+            bindings = <&kp PERCENT>;
         };
-        combo_QMARK { // ?
+        combo_quest: combo_quest { // ? = t + i
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_I>;
             bindings = <&kp QMARK>;
-            key-positions = <&kt &ki>; // t + i
         };
-        combo_EXCL { // !
+        combo_excl: combo_excl { // ! = t + i + space
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_I KP_SPACE>;
             bindings = <&kp EXCLAMATION>;
-            key-positions = <&kt &ki &kspace>; // t + i + space
         };
-        combo_SINGLE_QUOTE { // '
+        combo_squote: combo_squote { // ' = a + s
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_S>;
             bindings = <&kp SQT>;
-            key-positions = <&ka &ks>; // a + s
         };
-        combo_DOUBLE_QUOTE { // "
+        combo_dquote: combo_dquote { // " = a + s + space
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_S KP_SPACE>;
             bindings = <&kp DQT>;
-            key-positions = <&ka &ks &kspace>; // a + s + space
         };
-        combo_GRAVE { // `
+        combo_bquote: combo_bquote { // ` = a + s + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_S KP_BSPC>;
             bindings = <&kp GRAVE>;
-            key-positions = <&ka &ks &kbksp>; // a + s + backspace
         };
 
-        // --- Function Key Combos ---
-        combo_TAB {
+        // FUNCTIONAL/NAVIGATION COMBOS
+        combo_tab: combo_tab { // TAB = s + n + i
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_N KP_I>;
             bindings = <&kp TAB>;
-            key-positions = <&ks &kn &ki>; // s + n + i
         };
-        combo_ENTER {
+        combo_enter: combo_enter { // ENTER = o + t + e (o, t1, n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_T1 KP_N KP_I>;
             bindings = <&kp RET>;
-            key-positions = <&ko &kt &ke>; // o + t + e
         };
-        combo_ESC {
+        combo_esc: combo_esc { // ESC = o + t + e + space (o, t1, n, i, space)
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_T1 KP_N KP_I KP_SPACE>;
             bindings = <&kp ESC>;
-            key-positions = <&ko &kt &ke &kspace>; // o + t + e + space
         };
-        combo_LEFT {
+        combo_left: combo_left { // LEFT = o + space
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_SPACE>;
             bindings = <&kp LEFT>;
-            key-positions = <&ko &kspace>; // o + space
         };
-        combo_UP {
+        combo_up: combo_up { // UP = n + space
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_SPACE>;
             bindings = <&kp UP>;
-            key-positions = <&kn &kspace>; // n + space
         };
-        combo_RIGHT {
+        combo_right: combo_right { // RIGHT = e + space (n, i, space)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I KP_SPACE>; // **WARNING: Conflicts with '.' and '5'!**
             bindings = <&kp RIGHT>;
-            key-positions = <&ke &kspace>; // e + space
         };
-        combo_DOWN {
+        combo_down: combo_down { // DOWN = t + space
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_SPACE>;
             bindings = <&kp DOWN>;
-            key-positions = <&kt &kspace>; // t + space
-        };
-        combo_LAYER_SWITCH {
-            bindings = <&mo GAMING>; // Momentarily activate the GAMING layer
-            key-positions = <&kr &ks &kn &ki>; // r + s + n + i
-            // You might want &to (toggle) or &tg (toggle/tap) instead of &mo for some layers
         };
 
-        // --- One-Shot Keys ---
-        combo_GUI {
-            bindings = <&os_gui>;
-            key-positions = <&ke &ki>; // e + i
+        combo_layer_switch: combo_layer_switch { // LAYER SWITCH = r + s + n + i
+            timeout-ms = <50>;
+            key-positions = <KP_R KP_S KP_N KP_I>;
+            bindings = <&tog 1>; // Toggle to GAMING_LAYER (Layer 1)
         };
-        combo_CTRL {
-            bindings = <&os_ctrl>;
-            key-positions = <&kt &kn>; // t + n
+
+        // ONE SHOT KEYS (using &mod for modifiers, &kp for others)
+        combo_gui: combo_gui { // GUI = e + i (n, i, i -> just n, i)
+            timeout-ms = <50>;
+            key-positions = <KP_N KP_I>; // **WARNING: Conflicts with 'e', 'Y', ','!**
+            bindings = <&mod LGUI>; // One-shot Left GUI
         };
-        combo_ALT {
-            bindings = <&os_alt>;
-            key-positions = <&ko &ks>; // o + s
+        combo_ctrl: combo_ctrl { // CTRL = t + n
+            timeout-ms = <50>;
+            key-positions = <KP_T1 KP_N>;
+            bindings = <&mod LCTRL>; // One-shot Left CTRL
         };
-        combo_SHIFT {
-            bindings = <&os_shift>;
-            key-positions = <&ka &kr>; // a + r
+        combo_alt: combo_alt { // ALT = o + s
+            timeout-ms = <50>;
+            key-positions = <KP_O KP_S>;
+            bindings = <&mod LALT>; // One-shot Left ALT
         };
-        combo_DEL {
+        combo_shift: combo_shift { // SHIFT = a + r
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_R>;
+            bindings = <&mod LSHFT>; // One-shot Left SHIFT
+        };
+        combo_del: combo_del { // DEL = s + n + i + space
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_N KP_I KP_SPACE>;
             bindings = <&kp DEL>;
-            key-positions = <&ks &kn &ki &kspace>; // s + n + i + space
         };
-        combo_FN { // This would typically be a layer key, but can be a one-shot
-            bindings = <&kp F24>; // Placeholder, FN usually switches layers. If it's a specific keycode.
-            // If FN is meant to ctivate a Function layer, change to &mo <FN_LAYER_ID>
-            key-positions = <&ks &kn &ki &kbksp>; // s + n + i + backspace
+        combo_fn: combo_fn { // FN = s + n + i + backspace
+            timeout-ms = <50>;
+            key-positions = <KP_S KP_N KP_I KP_BSPC>;
+            bindings = <&kp FNC>; // ZMK doesn't have a generic "FN" keycode. Use a special one if you have a custom behavior or KC_APP or KC_FNC if your system supports it. KC_APP is Windows context menu.
+        };
+        // MACRO = a + o + t + e (0-9) - Example for '0'
+        // This is a more advanced use case. You'd define custom behaviors for macros.
+        // For simplicity, here's an example that types "MACRO 0".
+        // If you want to type the digit '0', use &kp N0
+        macro_0: macro_0 {
+            timeout-ms = <50>;
+            key-positions = <KP_A KP_O KP_T1 KP_N KP_I>; // a + o + t1 + e (n+i)
+            bindings = <&macro_tap ZMK_MACRO_ARGS( (M), (A), (C), (R), (O), (SPACE), (N0) )>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // These are your 10 base physical keys
+            bindings = <
+                &kp R  &kp S  &kp N  &kp I  &kp SPACE // Pos 0-4
+                &kp A  &kp O  &kp T  &kp T  &kp BSPC  // Pos 5-9 (Note: T twice, use KP_T1 and KP_T2 in combos)
+            >;
         };
 
-        // --- Macro (for 0-9) ---
-
-        macro_0_9 {
-            // This macro sends "MACRO ACTIVATED" then "0123456789" as example
-            // You'll need to define what these macros actually DO.
-            bindings = <&macro_play
-                // For a simple sequence:
-                &kp MACRO
-                &kp N0
-                &kp N1
-                &kp N2
-                &kp N3
-                &kp N4
-                &kp N5
-                &kp N6
-                &kp N7
-                &kp N8
-                &kp N9
-                >;
-            key-positions = <&ka &ko &kt &ke>; // a + o + t + e
+        gaming_layer {
+            // Your gaming layer definition
+            bindings = <
+                &kp ESC  &kp S   &kp W   &kp T   &kp SPACE // Pos 0-4
+                &kp LSHFT &kp A  &kp S   &kp D   &kp BSPC  // Pos 5-9
+            >;
         };
     };
 };
