@@ -6,7 +6,7 @@
     };
 
     kscan_0: kscan {
-        compatible = "zmk,kscan-gpio";
+        compatible = "zmk,kscan-gpio-direct";
         label = "KSCAN";
         debounce-press-ms = <5>;
         debounce-release-ms = <5>;
@@ -20,7 +20,7 @@
             <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, // 5 
             <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, // 6 
             <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, // 7 
-            <&gpio0 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, // 8
+            <&gpio0 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, // 8
             <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, // 9
             <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; // 10 
     };
