@@ -1,58 +1,27 @@
-// This file would typically be located at:
-// <your_board>/<your_shield>.dts or <your_board>/<your_shield>.overlay
+#include <dt-bindings/zmk/matrix.h>
 
 / {
-    compatible = "zmk,keymap"; // This is often in the main board.dts/overlay
-
-    // This section defines how the physical keys are connected to the microcontroller's pins.
-    // YOU MUST VERIFY THESE GPIO PINS AND THEIR ORDER MATCH YOUR ACTUAL WIRING.
-    // Replace p0,9 etc., with your actual pins.
-    // Assuming a 4-row, 5-column matrix.
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; // Or "row2col" depending on your diode orientation
-        row-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // Row 0
-                    <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // Row 1
-                    <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // Row 2
-                    <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // Row 3
-
-        col-gpios = <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>, // Col 0
-                    <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>, // Col 1
-                    <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>, // Col 2
-                    <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>, // Col 3
-                    <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // Col 4 (Assumed, as only 4 unique were listed)
+    chosen {
+        zmk,kscan = &kscan_0;
     };
 
-    // Define aliases for each key position for clarity in the keymap file
-    // These need to match the order in your keymap layer definitions.
-    // Adjust these to match the physical order on your PCB.
-    // This is a logical mapping, NOT directly the GPIO.
-    // It goes [row, column]
-    key_positions {
-        // TOP ROW (1-10)
-        kp1: k_1 { row = <0>; col = <0>; };
-        kp2: k_2 { row = <0>; col = <1>; };
-        kp3: k_3 { row = <0>; col = <2>; };
-        kp4: k_4 { row = <0>; col = <3>; };
-        kp5: k_5 { row = <0>; col = <4>; };
+    kscan_0: kscan {
+        compatible = "zmk,kscan-gpio";
+        label = "KSCAN";
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
 
-        kp6: k_6 { row = <1>; col = <0>; };
-        kp7: k_7 { row = <1>; col = <1>; };
-        kp8: k_8 { row = <1>; col = <2>; };
-        kp9: k_9 { row = <1>; col = <3>; };
-        kp10: k_10 { row = <1>; col = <4>; };
-
-        // BOTTOM TWO ROWS (Letters & Space/Backspace)
-        kr: k_r { row = <2>; col = <0>; };
-        ks: k_s { row = <2>; col = <1>; };
-        kn: k_n { row = <2>; col = <2>; };
-        ki: k_i { row = <2>; col = <3>; };
-        kspace: k_space { row = <2>; col = <4>; };
-
-        ka: k_a { row = <3>; col = <0>; };
-        ko: k_o { row = <3>; col = <1>; };
-        kt: k_t { row = <3>; col = <2>; };
-        ke: k_e { row = <3>; col = <3>; }; // Changed 't' to 'e' based on your keymap, assuming a typo
-        kbksp: k_backspace { row = <3>; col = <4>; };
+        input-gpios =
+            // Row 0
+            <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  
+            <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  
     };
 };
