@@ -1,0 +1,35 @@
+config SHIELD_taipo_ten_left
+    def_bool $(shields_list_contains,taipo_ten_left)
+
+    config ZMK_COMBO_MAX_PRESSED_COMBOS
+        default 4
+
+    config ZMK_COMBO_MAX_COMBOS_PER_KEY
+        default 100
+
+    config MAIN_STACK_SIZE
+        default 4096
+
+    config INPUT_THREAD_STACK_SIZE
+        default 4096
+
+    config SYSTEM_WORKQUEUE_STACK_SIZE
+        default 4096
+
+config SHIELD_taipo_ten_right
+    def_bool $(shields_list_contains,taipo_ten_right)
+
+    config ZMK_COMBO_MAX_PRESSED_COMBOS
+        default 4
+
+    config ZMK_COMBO_MAX_COMBOS_PER_KEY
+        default 100
+
+    config MAIN_STACK_SIZE
+        default 4096
+
+    config INPUT_THREAD_STACK_SIZE
+        default 4096
+
+    config SYSTEM_WORKQUEUE_STACK_SIZE
+        default 4096
