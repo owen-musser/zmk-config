@@ -6,19 +6,17 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // Each position in this 'bindings' array corresponds directly to the
-            // order of 'input-gpios' in your .overlay file (0 through 9).
             bindings = <
-                &kp N0  // Output '0' when the first GPIO in .overlay is pressed
-                &kp N1  // Output '1' when the second GPIO in .overlay is pressed
-                &kp N2  // Output '2' when the third GPIO in .overlay is pressed
-                &kp N3  // Output '3' when the fourth GPIO in .overlay is pressed
-                &kp N4  // Output '4' when the fifth GPIO in .overlay is pressed
-                &kp N5  // Output '5' when the sixth GPIO in .overlay is pressed
-                &kp N6  // Output '6' when the seventh GPIO in .overlay is pressed
-                &kp N7  // Output '7' when the eighth GPIO in .overlay is pressed
-                &kp N8  // Output '8' when the ninth GPIO in .overlay is pressed
-                &kp N9  // Output '9' when the tenth GPIO in .overlay is pressed
+                &kp N0
+                &kp N1
+                &kp N2
+                &kp N3
+                &kp N4
+                &kp N5
+                &kp N6
+                &kp N7
+                &kp N8
+                &kp N9
             >;
         };
     };
