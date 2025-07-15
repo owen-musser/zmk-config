@@ -50,7 +50,7 @@
 
         COMBO_DEF(B, &kp B, KP_R KP_S)
         COMBO_DEF(C, &kp C, KP_O KP_E)
-        COMBO_DEF(D, &kp D, KP_A KP_E) // Added KP_I based on common D combo
+        COMBO_DEF(D, &kp D, KP_A KP_E)
         COMBO_DEF(F, &kp F, KP_S KP_I)
         COMBO_DEF(G, &kp G, KP_R KP_I)
         COMBO_DEF(H, &kp H, KP_T KP_E)
@@ -120,10 +120,10 @@
         COMBO_DEF(RIGHT,       &kp RIGHT,     KP_E KP_SPACE)
         COMBO_DEF(DOWN,        &kp DOWN,      KP_T KP_SPACE)
 
-        COMBO_DEF(BT0, &bt BT_SEL 0, KP_SPACE, KP_BSPC, KP_E)
-        COMBO_DEF(BT1, &bt BT_SEL 1, KP_SPACE, KP_BSPC, KP_T)
-        COMBO_DEF(BT2, &bt BT_SEL 2, KP_SPACE, KP_BSPC, KP_O)
-        COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE, KP_BSPC, KP_A)
+        COMBO_DEF(BT0, &bt BT_SEL 0, KP_SPACE KP_BSPC KP_E)
+        COMBO_DEF(BT1, &bt BT_SEL 1, KP_SPACE KP_BSPC KP_T)
+        COMBO_DEF(BT2, &bt BT_SEL 2, KP_SPACE KP_BSPC KP_O)
+        COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
 /*        
         COMBO_MOD(GUI,   &mod LGUI,   KP_N KP_I)
         COMBO_MOD(CTRL,  &mod LCTRL,  KP_T KP_N)
