@@ -8,17 +8,13 @@
 
         default_layer {
             bindings = <
-                &kp R
-                &kp S
-                &kp N
-                &kp I
-                &kp SPACE
-                &kp A 
-                &kp O
-                &kp T
-                &kp E
-                &kp BACKSPACE
+                &kp R   &kp S   &kp N   &kp I   &kp SPACE
+                &kp A   &kp O   &kp T   &kp E   &kp BACKSPACE
             >;
         };
+    };
+    combos {
+        compatible = "zmk,combos";
+
     };
 };

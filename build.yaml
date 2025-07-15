@@ -4,3 +4,5 @@ include:
     shield: taipo_ten_left
   - board: nice_nano_v2
     shield: taipo_ten_right
+    snippets:
+    - zmk-usb-logging
