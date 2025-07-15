@@ -11,7 +11,7 @@
 #define KP_A 5
 #define KP_O 6
 #define KP_T 7
-#define KP_E 8 // Note: This is the base key 'E', not the 'e' combo from previous iterations.
+#define KP_E 8 
 #define KP_BSPC 9
 
 
@@ -49,27 +49,26 @@
         compatible = "zmk,combos";
 
         COMBO_DEF(B, &kp B, KP_R KP_S)
-        COMBO_DEF(C, &kp C, KP_O KP_N KP_I)
-        COMBO_DEF(D, &kp D, KP_A KP_N KP_I) // Added KP_I based on common D combo
+        COMBO_DEF(C, &kp C, KP_O KP_E)
+        COMBO_DEF(D, &kp D, KP_A KP_E) // Added KP_I based on common D combo
         COMBO_DEF(F, &kp F, KP_S KP_I)
         COMBO_DEF(G, &kp G, KP_R KP_I)
-        COMBO_DEF(H, &kp H, KP_T KP_N KP_I)
+        COMBO_DEF(H, &kp H, KP_T KP_E)
         COMBO_DEF(J, &kp J, KP_A KP_N)
         COMBO_DEF(K, &kp K, KP_O KP_I)
         COMBO_DEF(L, &kp L, KP_A KP_O)
-        COMBO_DEF(M, &kp M, KP_R KP_N KP_I)
+        COMBO_DEF(M, &kp M, KP_R KP_E)
         COMBO_DEF(P, &kp P, KP_S KP_N)
         COMBO_DEF(Q, &kp Q, KP_A KP_T)
         COMBO_DEF(U, &kp U, KP_O KP_T)
-        COMBO_DEF(V, &kp V, KP_S KP_N KP_I)
+        COMBO_DEF(V, &kp V, KP_S KP_E)
         COMBO_DEF(W, &kp W, KP_A KP_I)
         COMBO_DEF(X, &kp X, KP_R KP_T)
-        COMBO_DEF(Y, &kp Y, KP_N KP_I KP_SPACE)
+        COMBO_DEF(Y, &kp Y, KP_N KP_I)
         COMBO_DEF(Z, &kp Z, KP_R KP_N)
 
-        // CORRECTED NUMBER KEYCODES (ZMK uses N0, N1, etc. for the numbers 0-9)
-        COMBO_DEF(N0, &kp N0, KP_N KP_I KP_T KP_SPACE)
-        COMBO_DEF(N1, &kp N1, KP_N KP_I KP_O KP_SPACE)
+        COMBO_DEF(N0, &kp N0, KP_E KP_T KP_SPACE)
+        COMBO_DEF(N1, &kp N1, KP_E KP_O KP_SPACE)
         COMBO_DEF(N2, &kp N2, KP_T KP_O KP_SPACE)
         COMBO_DEF(N3, &kp N3, KP_T KP_A KP_SPACE)
         COMBO_DEF(N4, &kp N4, KP_O KP_A KP_SPACE)
@@ -79,7 +78,7 @@
         COMBO_DEF(N8, &kp N8, KP_N KP_R KP_SPACE)
         COMBO_DEF(N9, &kp N9, KP_S KP_R KP_SPACE)
 
-        COMBO_DEF(LPAR, &kp LPAR, KP_N KP_I KP_BSPC)
+        COMBO_DEF(LPAR, &kp LPAR, KP_E KP_BSPC)
         COMBO_DEF(RPAR, &kp RPAR, KP_I KP_BSPC)
         COMBO_DEF(LBKT, &kp LBKT, KP_T KP_BSPC)
         COMBO_DEF(RBKT, &kp RBKT, KP_N KP_BSPC)
@@ -91,18 +90,18 @@
         COMBO_DEF(HASH,        &kp HASH,      KP_R KP_I KP_BSPC)
         COMBO_DEF(CARET,      &kp CARET,      KP_R KP_T KP_BSPC) 
         COMBO_DEF(ASTERISK,    &kp ASTERISK,  KP_A KP_N KP_BSPC)
-        COMBO_DEF(DLLR,        &kp DLLR,      KP_R KP_N KP_I KP_BSPC) 
+        COMBO_DEF(DLLR,        &kp DLLR,      KP_R KP_E KP_BSPC) 
         COMBO_DEF(BACKSLASH,      &kp BACKSLASH,    KP_O KP_I KP_SPACE)
         COMBO_DEF(PIPE,        &kp PIPE,      KP_O KP_I KP_BSPC)
         COMBO_DEF(SLASH,       &kp SLASH,     KP_O KP_I)
         COMBO_DEF(COLON,       &kp COLON,     KP_R KP_O)
         COMBO_DEF(SEMICOLON,   &kp SCLN,      KP_R KP_O KP_SPACE) 
-        COMBO_DEF(COMMA,       &kp COMMA,     KP_N KP_I KP_S)
-        COMBO_DEF(DOT,         &kp DOT,       KP_N KP_I KP_SPACE)
-        COMBO_DEF(TILDE,       &kp TILDE,     KP_N KP_I KP_BSPC)
-        COMBO_DEF(AT,          &kp AT,        KP_A KP_N KP_I KP_BSPC)
-        COMBO_DEF(PLUS,        &kp PLUS,      KP_O KP_I KP_BSPC KP_A)
-        COMBO_DEF(EQUAL,       &kp EQUAL,     KP_A KP_N KP_BSPC KP_R)
+        COMBO_DEF(COMMA,       &kp COMMA,     KP_N KP_E)
+        COMBO_DEF(DOT,         &kp DOT,       KP_N KP_E KP_SPACE)
+        COMBO_DEF(TILDE,       &kp TILDE,     KP_N KP_E KP_BSPC)
+        COMBO_DEF(AT,          &kp AT,        KP_A KP_E KP_BSPC)
+        COMBO_DEF(PLUS,        &kp PLUS,      KP_O KP_I KP_BSPC)
+        COMBO_DEF(EQUAL,       &kp EQUAL,     KP_A KP_N KP_BSPC)
         COMBO_DEF(AMPS,        &kp AMPS,      KP_A KP_I KP_BSPC)
         COMBO_DEF(MINUS,       &kp MINUS,     KP_O KP_N)
         COMBO_DEF(UNDERSCORE,&kp UNDER,     KP_O KP_N KP_SPACE) 
@@ -114,20 +113,19 @@
         COMBO_DEF(GRAVE,       &kp GRAVE,     KP_A KP_S KP_BSPC)
 
         COMBO_DEF(TAB,         &kp TAB,       KP_S KP_N KP_I)
-        COMBO_DEF(ENTER,       &kp RET,       KP_O KP_T KP_N KP_I)
-        COMBO_DEF(ESC,         &kp ESC,       KP_O KP_T KP_N KP_I KP_SPACE)
+        COMBO_DEF(ENTER,       &kp RET,       KP_O KP_T KP_E)
+        COMBO_DEF(ESC,         &kp ESC,       KP_O KP_T KP_E KP_SPACE)
         COMBO_DEF(LEFT,        &kp LEFT,      KP_O KP_SPACE)
         COMBO_DEF(UP,          &kp UP,        KP_N KP_SPACE)
-        COMBO_DEF(RIGHT,       &kp RIGHT,     KP_N KP_I KP_SPACE KP_T)
+        COMBO_DEF(RIGHT,       &kp RIGHT,     KP_E KP_SPACE)
         COMBO_DEF(DOWN,        &kp DOWN,      KP_T KP_SPACE)
-/*
-        // --- ONE SHOT MODIFIERS ---
+
         COMBO_MOD(GUI,   &mod LGUI,   KP_N KP_I)
         COMBO_MOD(CTRL,  &mod LCTRL,  KP_T KP_N)
         COMBO_MOD(ALT,   &mod LALT,   KP_O KP_S)
         COMBO_MOD(SHIFT, &mod LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE)
         //COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) 
-*/
+        
     };
 };
