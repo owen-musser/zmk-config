@@ -19,10 +19,10 @@
 // Define a macro for combo boilerplate
 #define COMBO_DEF(NAME, BINDINGS, KEYPOS_LIST) \
     combo_##NAME { \
-        timeout-ms = <50>; \
+        timeout-ms = <100>; \
         bindings = <BINDINGS>; \
         key-positions = <KEYPOS_LIST>; \
-        layers = <0>; /* Combo active only on layer 0 */ \
+        layers = <0>; \
     };
 / {
     keymap {
@@ -120,8 +120,7 @@
         COMBO_DEF(CTRL,  &mod LCTRL,  KP_T KP_N)
         COMBO_DEF(ALT,   &mod LALT,   KP_O KP_S)
         COMBO_DEF(SHIFT, &mod LSHFT,  KP_A KP_R)
-        COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE)
-        //COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) 
+        COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE) 
 
     };
 };
