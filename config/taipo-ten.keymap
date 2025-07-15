@@ -24,16 +24,6 @@
         key-positions = <KEYPOS_LIST>; \
         layers = <0>; /* Combo active only on layer 0 */ \
     };
-
-// Define a macro for combos that produce One-Shot Modifiers
-#define COMBO_MOD(NAME, BINDING_MOD, KEYPOS_LIST) \
-    combo_##NAME { \
-        timeout-ms = <50>; \
-        bindings = <BINDING_MOD>; \
-        key-positions = <KEYPOS_LIST>; \
-        layers = <0>; \
-    };
-
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -125,13 +115,13 @@
         COMBO_DEF(BT1, &bt BT_SEL 1, KP_SPACE KP_BSPC KP_T)
         COMBO_DEF(BT2, &bt BT_SEL 2, KP_SPACE KP_BSPC KP_O)
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
-/*        
-        COMBO_MOD(GUI,   &mod LGUI,   KP_N KP_I)
-        COMBO_MOD(CTRL,  &mod LCTRL,  KP_T KP_N)
-        COMBO_MOD(ALT,   &mod LALT,   KP_O KP_S)
-        COMBO_MOD(SHIFT, &mod LSHFT,  KP_A KP_R)
+        
+        COMBO_DEF(GUI,   &mod LGUI,   KP_E KP_I)
+        COMBO_DEF(CTRL,  &mod LCTRL,  KP_T KP_N)
+        COMBO_DEF(ALT,   &mod LALT,   KP_O KP_S)
+        COMBO_DEF(SHIFT, &mod LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE)
-        //COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) 
-*/
+        COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) 
+
     };
 };
