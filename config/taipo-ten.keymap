@@ -1,12 +1,27 @@
 #include <dt-bindings/zmk/keys.h>
-#include <behaviors.dtsi>
-#define COMBO(NAME, BINDINGS, KEYPOS) \
-  combo_##NAME { \
-    timeout-ms = <50>; \
-    bindings = <BINDINGS>; \
-    key-positions = <KEYPOS>; \
-    layers = <0>; \
-  };
+#include <behaviors.dtsi> 
+
+#define KP_R 0
+#define KP_S 1
+#define KP_N 2
+#define KP_I 3
+#define KP_SPACE 4 // Corrected to match your default_layer line 1
+
+#define KP_A 5
+#define KP_O 6
+#define KP_T 7
+#define KP_E 8
+#define KP_BSPC 9 // Corrected from K_B, assuming B is Backspace
+
+
+// Define a macro for combo boilerplate
+#define COMBO_DEF(NAME, BINDINGS, KEYPOS_LIST) \
+    combo_##NAME { \
+        timeout-ms = <50>; \
+        bindings = <BINDINGS>; \
+        key-positions = <KEYPOS_LIST>; \
+        layers = <0>; /* Combo active only on layer 0 */ \
+    };
 
 / {
     keymap {
@@ -14,28 +29,17 @@
 
         default_layer {
             bindings = <
-                &kp R   &kp S   &kp N   &kp I   &kp SPACE
-                &kp A   &kp O   &kp T   &kp E   &kp BACKSPACE
+                &kp R     &kp S     &kp N     &kp I     &kp SPACE // Positions 0-4
+                &kp A     &kp O     &kp T     &kp E     &kp BSPC  // Positions 5-9 (Assuming your 'E' key is physical position 8, and 'BACKSPACE' is physical position 9)
             >;
         };
     };
-
-    int K_R = 0;
-    int K_S = 1;
-    int K_N = 2;
-    int K_I = 3;
-    int K_S = 4;
-    int K_A = 5;
-    int K_O = 6;
-    int K_T = 7;
-    int K_E = 8;
-    int K_B = B;
-
+    
     combos {
         compatible = "zmk,combos";
 
-        COMBO(B, &kp B, K_R K_S)
-        COMBO(C, &kp C, K_O K_E)
+        COMBO_DEF(B, &kp B, KP_R KP_S)
+        COMBO_DEF(C, &kp C, KP_O KP_E)
 
     };
 };
