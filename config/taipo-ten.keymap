@@ -1,7 +1,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/modifiers.h> // Make sure this is included for &mod
+#include <dt-bindings/zmk/modifiers.h> 
 
 #define KP_R 0
 #define KP_S 1
@@ -116,10 +116,10 @@
         COMBO_DEF(BT2, &bt BT_SEL 2, KP_SPACE KP_BSPC KP_O)
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
         
-        COMBO_DEF(GUI,   &mod LGUI,   KP_E KP_I)
-        COMBO_DEF(CTRL,  &mod LCTRL,  KP_T KP_N)
-        COMBO_DEF(ALT,   &mod LALT,   KP_O KP_S)
-        COMBO_DEF(SHIFT, &mod LSHFT,  KP_A KP_R)
+        COMBO_DEF(GUI,   &kp LGUI,   KP_E KP_I)
+        COMBO_DEF(CTRL,  &kp LCTRL,  KP_T KP_N)
+        COMBO_DEF(ALT,   &kp LALT,   KP_O KP_S)
+        COMBO_DEF(SHIFT, &kp LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE) 
 
     };
