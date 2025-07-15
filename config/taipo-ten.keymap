@@ -122,7 +122,7 @@
         COMBO_DEF(DOWN,        &kp DOWN,      KP_T KP_SPACE)
 
         COMBO_DEF(BT0, &bt BT_SEL 0, KP_SPACE KP_BSPC KP_E)
-        COMBO_DE (BT1, &bt BT_SEL 1, KP_SPACE KP_BSPC KP_T)
+        COMBO_DEF(BT1, &bt BT_SEL 1, KP_SPACE KP_BSPC KP_T)
         COMBO_DEF(BT2, &bt BT_SEL 2, KP_SPACE KP_BSPC KP_O)
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
 /*        
