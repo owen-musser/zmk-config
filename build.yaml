@@ -6,3 +6,5 @@ include:
     shield: taipo_ten_right
     snippets:
     - zmk-usb-logging
+
+    0888800
