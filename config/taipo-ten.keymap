@@ -1,6 +1,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <behaviors.dtsi>
-//#include <dt-bindings/zmk/matrix.h>
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <0>; \
+  };
 
 / {
     keymap {
@@ -13,8 +19,23 @@
             >;
         };
     };
+
+    int K_R = 0;
+    int K_S = 1;
+    int K_N = 2;
+    int K_I = 3;
+    int K_S = 4;
+    int K_A = 5;
+    int K_O = 6;
+    int K_T = 7;
+    int K_E = 8;
+    int K_B = B;
+
     combos {
         compatible = "zmk,combos";
+
+        COMBO(B, &kp B, K_R K_S)
+        COMBO(C, &kp C, K_O K_E)
 
     };
 };
