@@ -87,12 +87,12 @@
         COMBO_DEF(RBRC, &kp RBRC, KP_S KP_BSPC)
         COMBO_DEF(LT,   &kp LT,   KP_A KP_BSPC)
         COMBO_DEF(GT,   &kp GT,   KP_R KP_BSPC)
-/*
+
         COMBO_DEF(HASH,        &kp HASH,      KP_R KP_I KP_BSPC)
-        //COMBO_DEF(CIRC,      &kp CIRC,      KP_R KP_T KP_BSPC) 
+        COMBO_DEF(CARET,      &kp CARET,      KP_R KP_T KP_BSPC) 
         COMBO_DEF(ASTERISK,    &kp ASTERISK,  KP_A KP_N KP_BSPC)
         COMBO_DEF(DLLR,        &kp DLLR,      KP_R KP_N KP_I KP_BSPC) 
-        //COMBO_DEF(BSLASH,      &kp BSLASH,    KP_O KP_I KP_SPACE)
+        COMBO_DEF(BACKSLASH,      &kp BACKSLASH,    KP_O KP_I KP_SPACE)
         COMBO_DEF(PIPE,        &kp PIPE,      KP_O KP_I KP_BSPC)
         COMBO_DEF(SLASH,       &kp SLASH,     KP_O KP_I)
         COMBO_DEF(COLON,       &kp COLON,     KP_R KP_O)
@@ -120,7 +120,7 @@
         COMBO_DEF(UP,          &kp UP,        KP_N KP_SPACE)
         COMBO_DEF(RIGHT,       &kp RIGHT,     KP_N KP_I KP_SPACE KP_T)
         COMBO_DEF(DOWN,        &kp DOWN,      KP_T KP_SPACE)
-
+/*
         // --- ONE SHOT MODIFIERS ---
         COMBO_MOD(GUI,   &mod LGUI,   KP_N KP_I)
         COMBO_MOD(CTRL,  &mod LCTRL,  KP_T KP_N)
