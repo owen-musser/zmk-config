@@ -91,14 +91,14 @@
         COMBO_DEF(GT,   &kp GT,   KP_R KP_BSPC)
 
         COMBO_DEF(HASH,        &kp HASH,      KP_R KP_I KP_BSPC)
-        //COMBO_DEF(CIRC,      &kp CIRC,      KP_R KP_T KP_BSPC) // CIRC is often ^, which is LS(N6)
+        //COMBO_DEF(CIRC,      &kp CIRC,      KP_R KP_T KP_BSPC) 
         COMBO_DEF(ASTERISK,    &kp ASTERISK,  KP_A KP_N KP_BSPC)
-        COMBO_DEF(DLLR,        &kp DLLR,      KP_R KP_N KP_I KP_BSPC) // Use DLLR for '$'
+        COMBO_DEF(DLLR,        &kp DLLR,      KP_R KP_N KP_I KP_BSPC) 
         COMBO_DEF(BSLASH,      &kp BSLASH,    KP_O KP_I KP_SPACE)
         COMBO_DEF(PIPE,        &kp PIPE,      KP_O KP_I KP_BSPC)
         COMBO_DEF(SLASH,       &kp SLASH,     KP_O KP_I)
         COMBO_DEF(COLON,       &kp COLON,     KP_R KP_O)
-        COMBO_DEF(SEMICOLON,   &kp SCLN,      KP_R KP_O KP_SPACE) // Corrected to SCLN
+        COMBO_DEF(SEMICOLON,   &kp SCLN,      KP_R KP_O KP_SPACE) 
         COMBO_DEF(COMMA,       &kp COMMA,     KP_N KP_I KP_S)
         COMBO_DEF(DOT,         &kp DOT,       KP_N KP_I KP_SPACE)
         COMBO_DEF(TILDE,       &kp TILDE,     KP_N KP_I KP_BSPC)
@@ -107,10 +107,10 @@
         COMBO_DEF(EQUAL,       &kp EQUAL,     KP_A KP_N KP_BSPC KP_R)
         COMBO_DEF(AMPS,        &kp AMPS,      KP_A KP_I KP_BSPC)
         COMBO_DEF(MINUS,       &kp MINUS,     KP_O KP_N)
-        COMBO_DEF(UNDERSCORE,&kp UNDER,     KP_O KP_N KP_SPACE) // Corrected to UNDER
+        COMBO_DEF(UNDERSCORE,&kp UNDER,     KP_O KP_N KP_SPACE) 
         COMBO_DEF(PERCENT,     &kp PERCENT,   KP_O KP_N KP_BSPC)
         COMBO_DEF(QMARK,       &kp QMARK,     KP_T KP_I)
-        COMBO_DEF(EXCLAMATION,&kp EXCL,      KP_T KP_I KP_SPACE) // Corrected to EXCL
+        COMBO_DEF(EXCLAMATION,&kp EXCL,      KP_T KP_I KP_SPACE) 
         COMBO_DEF(SQT,         &kp SQT,       KP_A KP_S)
         COMBO_DEF(DQT,         &kp DQT,       KP_A KP_S KP_SPACE)
         COMBO_DEF(GRAVE,       &kp GRAVE,     KP_A KP_S KP_BSPC)
@@ -129,6 +129,6 @@
         COMBO_MOD(ALT,   &mod LALT,   KP_O KP_S)
         COMBO_MOD(SHIFT, &mod LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE)
-        COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) // FNC is a common function keycode
+        COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) 
     };
 };
