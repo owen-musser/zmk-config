@@ -119,13 +119,13 @@
         COMBO_DEF(UP,          &kp UP,        KP_N KP_SPACE)
         COMBO_DEF(RIGHT,       &kp RIGHT,     KP_E KP_SPACE)
         COMBO_DEF(DOWN,        &kp DOWN,      KP_T KP_SPACE)
-
+/*
         COMBO_MOD(GUI,   &mod LGUI,   KP_N KP_I)
         COMBO_MOD(CTRL,  &mod LCTRL,  KP_T KP_N)
         COMBO_MOD(ALT,   &mod LALT,   KP_O KP_S)
         COMBO_MOD(SHIFT, &mod LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE)
         //COMBO_DEF(FN,    &kp FNC,     KP_S KP_N KP_I KP_BSPC) 
-        
+*/
     };
 };
