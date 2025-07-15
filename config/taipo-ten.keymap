@@ -119,6 +119,11 @@
         COMBO_DEF(UP,          &kp UP,        KP_N KP_SPACE)
         COMBO_DEF(RIGHT,       &kp RIGHT,     KP_E KP_SPACE)
         COMBO_DEF(DOWN,        &kp DOWN,      KP_T KP_SPACE)
+
+        COMBO_DEF(BT0,    &bt BT_SEL 0, KP_SPACE KP_BSPC KP_E)
+        COMBO_DEF(BT1,    &bt BT_SEL 1, KP_SPACE KP_BSPC KP_T)
+        COMBO_DEF(BT2,    &bt BT_SEL 2, KP_SPACE KP_BSPC KP_O)
+        COMBO_DEF(BT_CLR,    &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
 /*
         COMBO_MOD(GUI,   &mod LGUI,   KP_N KP_I)
         COMBO_MOD(CTRL,  &mod LCTRL,  KP_T KP_N)
