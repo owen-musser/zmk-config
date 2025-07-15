@@ -78,8 +78,11 @@
         COMBO_DEF(N8, &kp N8, KP_N KP_R KP_SPACE)
         COMBO_DEF(N9, &kp N9, KP_S KP_R KP_SPACE)
 
-        COMBO_DEF(LPRN, &kp LPRN, KP_N KP_I KP_BSPC)
-        COMBO_DEF(RPRN, &kp RPRN, KP_I KP_BSPC) // Corrected from LPRN -> RPRN in original
+        // *** FIX START HERE ***
+        COMBO_DEF(LPAR, &kp LPAR, KP_N KP_I KP_BSPC) // Changed LPRN to LPAR
+        COMBO_DEF(RPAR, &kp RPAR, KP_I KP_BSPC)     // Changed RPRN to RPAR
+        // *** FIX END HERE ***
+
         COMBO_DEF(LBKT, &kp LBKT, KP_T KP_BSPC)
         COMBO_DEF(RBKT, &kp RBKT, KP_N KP_BSPC)
         COMBO_DEF(LCBR, &kp LCBR, KP_O KP_BSPC)
