@@ -110,10 +110,10 @@
         COMBO_DEF(BT1, &bt BT_SEL 1, KP_SPACE KP_BSPC KP_T)
         COMBO_DEF(BT2, &bt BT_SEL 2, KP_SPACE KP_BSPC KP_O)
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
-        COMBO_DEF(GUI,   &kp LGUI,   KP_E KP_I)
-        COMBO_DEF(CTRL,  &kp LCTRL,  KP_T KP_N)
-        COMBO_DEF(ALT,   &kp LALT,   KP_O KP_S)
-        COMBO_DEF(SHIFT, &kp LSHFT,  KP_A KP_R)
+        COMBO_DEF(GUI,   &sk LGUI,   KP_E KP_I)
+        COMBO_DEF(CTRL,  &sk LCTRL,  KP_T KP_N)
+        COMBO_DEF(ALT,   &sk LALT,   KP_O KP_S)
+        COMBO_DEF(SHIFT, &sk LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE) 
     };
 };
