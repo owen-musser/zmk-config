@@ -9,7 +9,7 @@
 #define KP_N 2
 #define KP_I 3
 #define KP_SPACE 4
-// #define HYPER LC(LA(LSFT(LGUI)))
+#define HYPER LC(LA(LS(LG)))
 
 #define KP_A 5
 #define KP_O 6
@@ -17,8 +17,6 @@
 #define KP_E 8 
 #define KP_BSPC 9
 
-
-// Define a macro for combo boilerplate
 #define COMBO_DEF(NAME, BINDINGS, KEYPOS_LIST) \
     combo_##NAME { \
         timeout-ms = <100>; \
@@ -115,7 +113,7 @@
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
         COMBO_DEF(GUI,   &sk LGUI,   KP_E KP_I)
         COMBO_DEF(CTRL,  &sk LCTRL,  KP_T KP_N)
-        // COMBO_DEF(HYPER,   &sk HYPER,   KP_O KP_S)
+        COMBO_DEF(HYPER,   &sk HYPER,   KP_O KP_S)
         COMBO_DEF(SHIFT, &sk LSHFT,  KP_A KP_R)
         COMBO_DEF(DEL,   &kp DEL,     KP_S KP_N KP_I KP_SPACE) 
     };
