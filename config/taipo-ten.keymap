@@ -59,6 +59,10 @@
         COMBO_DEF(X, &kp X, KP_R KP_T)
         COMBO_DEF(Y, &kp Y, KP_N KP_I)
         COMBO_DEF(Z, &kp Z, KP_R KP_N)
+
+        COMBO_DEF(A, &mt LSHIFT A, KP_A)
+        COMBO_DEF(B, &mt LSHIFT B, KP_R KP_S)
+
         COMBO_DEF(N0, &kp N0, KP_E KP_T KP_SPACE)
         COMBO_DEF(N1, &kp N1, KP_E KP_O KP_SPACE)
         COMBO_DEF(N2, &kp N2, KP_T KP_O KP_SPACE)
