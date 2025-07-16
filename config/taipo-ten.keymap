@@ -36,8 +36,8 @@
         };
         game_layer {
             bindings = <
-                &kp ESC       &kp T       &kp W       &kp CTRL       &kp SPACE
-                &kp SHIFT       &kp A       &kp S       &kp D       &kp BSPC
+                &kp ESC       &kp T       &kp W       &kp LCTRL       &kp SPACE
+                &kp LSHIFT       &kp A       &kp S       &kp D       &kp BSPC
             >;
         };
     };
