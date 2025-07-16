@@ -2,6 +2,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/modifiers.h> 
+#define STICKY_TIMEOUT TIMEOUT_XLONG
 
 #define KP_R 0
 #define KP_S 1
@@ -32,6 +33,12 @@
             bindings = <
                 &kp R       &kp S       &kp N       &kp I       &kp SPACE
                 &kp A       &kp O       &kp T       &kp E       &kp BSPC
+            >;
+        };
+        gaming_layer {
+            bindings = <
+                &kp ESC       &kp CTRL       &kp W       &kp TAB       &kp SPACE
+                &kp SHIFT       &kp A       &kp S       &kp D       &kp BSPC
             >;
         };
     };
