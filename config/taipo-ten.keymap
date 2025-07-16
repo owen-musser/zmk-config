@@ -36,7 +36,7 @@
         };
         game_layer {
             bindings = <
-                &kp ESC       &kp T       &kp W       &kp LCTRL       &kp SPACE
+                &kp ESC       &kp T       &kp W       &kp TAB       &kp SPACE
                 &kp LSHIFT       &kp A       &kp S       &kp D       &kp BSPC
             >;
         };
@@ -121,7 +121,7 @@
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
 
         COMBO_DEF(TOG1, &tog 1, KP_SPACE KP_BSPC KP_I)
-        COMBO_DEF(TOG0, &tog 1, KP_SPACE KP_BSPC LCTRL)
+        COMBO_DEF(TOG0, &tog 1, KP_SPACE KP_BSPC TAB)
 
         COMBO_DEF(GUI,   &sk LGUI,   KP_E KP_I)
         COMBO_DEF(CTRL,  &sk LCTRL,  KP_T KP_N)
