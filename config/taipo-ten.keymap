@@ -9,7 +9,7 @@
 #define KP_N 2
 #define KP_I 3
 #define KP_SPACE 4
-#define HYPER LC(LA(LSFT(LGUI))
+#define HYPER LC(LA(LSFT(LGUI)))
 
 #define KP_A 5
 #define KP_O 6
