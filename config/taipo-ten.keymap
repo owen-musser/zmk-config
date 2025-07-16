@@ -121,6 +121,7 @@
         COMBO_DEF(BT_CLR, &bt BT_CLR, KP_SPACE KP_BSPC KP_A)
 
         COMBO_DEF(TOG, &tog 1, KP_SPACE KP_BSPC KP_I)
+        COMBO_DEF(TOG, &tog 0, KP_SPACE KP_BSPC LCTRL)
 
         COMBO_DEF(GUI,   &sk LGUI,   KP_E KP_I)
         COMBO_DEF(CTRL,  &sk LCTRL,  KP_T KP_N)
