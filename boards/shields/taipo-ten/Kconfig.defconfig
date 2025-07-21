@@ -21,7 +21,4 @@ if SHIELD_taipo_ten_left || SHIELD_taipo_ten_right
     config ZMK_SPLIT
         default y
 
-    config ZMK_USB
-        default y
-
     endif
