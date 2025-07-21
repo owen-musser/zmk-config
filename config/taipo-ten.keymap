@@ -45,7 +45,7 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO_DEF(B, &mt LSHIFT(B) B, KP_R KP_S)
+        COMBO_DEF(B, &mt LS(B) B, KP_R KP_S)
         COMBO_DEF(C, &kp C, KP_O KP_E)
         COMBO_DEF(D, &kp D, KP_A KP_E)
         COMBO_DEF(F, &kp F, KP_S KP_I)
