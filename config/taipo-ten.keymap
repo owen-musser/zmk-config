@@ -24,6 +24,10 @@
         key-positions = <KEYPOS_LIST>; \
         layers = <0>; \
     };
+
+&mt {
+    tapping-term-ms = <400>;
+};
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -40,10 +44,6 @@
                 &kp LSHIFT       &kp A       &kp S       &kp D       &kp BSPC
             >;
         };
-    };
-
-    &mt {
-        tapping-term-ms = <400>;
     };
  
     combos {
