@@ -30,8 +30,8 @@
 
         default_layer {
             bindings = <
-                &kp R       &kp S       &kp N       &kp I       &kp SPACE
-                &kp A       &kp O       &kp T       &kp E       &kp BSPC
+                &mt LS(R) R       &mt LS(S) S       &mt LS(N) N       &mt LS(I) I       &mt LS(SPACE) SPACE
+                &mt LS(A) A       &mt LS(O) O       &mt LS(T) T       &mt LS(E) E       &mt LS(BSPC) BSPC
             >;
         };
         game_layer {
@@ -46,23 +46,23 @@
         compatible = "zmk,combos";
 
         COMBO_DEF(B, &mt LS(B) B, KP_R KP_S)
-        COMBO_DEF(C, &kp C, KP_O KP_E)
-        COMBO_DEF(D, &kp D, KP_A KP_E)
-        COMBO_DEF(F, &kp F, KP_S KP_I)
-        COMBO_DEF(G, &kp G, KP_R KP_I)
-        COMBO_DEF(H, &kp H, KP_T KP_E)
-        COMBO_DEF(J, &kp J, KP_A KP_N)
-        COMBO_DEF(K, &kp K, KP_O KP_I)
-        COMBO_DEF(L, &kp L, KP_A KP_O)
-        COMBO_DEF(M, &kp M, KP_R KP_E)
-        COMBO_DEF(P, &kp P, KP_S KP_N)
-        COMBO_DEF(Q, &kp Q, KP_A KP_T)
-        COMBO_DEF(U, &kp U, KP_O KP_T)
-        COMBO_DEF(V, &kp V, KP_S KP_E)
-        COMBO_DEF(W, &kp W, KP_A KP_I)
-        COMBO_DEF(X, &kp X, KP_R KP_T)
-        COMBO_DEF(Y, &kp Y, KP_N KP_I)
-        COMBO_DEF(Z, &kp Z, KP_R KP_N)
+        COMBO_DEF(C, &mt LS(C) C, KP_O KP_E)
+        COMBO_DEF(D, &mt LS(D) D, KP_A KP_E)
+        COMBO_DEF(F, &mt LS(F) F, KP_S KP_I)
+        COMBO_DEF(G, &mt LS(G) G, KP_R KP_I)
+        COMBO_DEF(H, &mt LS(H) H, KP_T KP_E)
+        COMBO_DEF(J, &mt LS(J) J, KP_A KP_N)
+        COMBO_DEF(K, &mt LS(K) K, KP_O KP_I)
+        COMBO_DEF(L, &mt LS(L) L, KP_A KP_O)
+        COMBO_DEF(M, &mt LS(M) M, KP_R KP_E)
+        COMBO_DEF(P, &mt LS(P) P, KP_S KP_N)
+        COMBO_DEF(Q, &mt LS(Q) Q, KP_A KP_T)
+        COMBO_DEF(U, &mt LS(U) U, KP_O KP_T)
+        COMBO_DEF(V, &mt LS(V) V, KP_S KP_E)
+        COMBO_DEF(W, &mt LS(W) W, KP_A KP_I)
+        COMBO_DEF(X, &mt LS(X) X, KP_R KP_T)
+        COMBO_DEF(Y, &mt LS(Y) Y, KP_N KP_I)
+        COMBO_DEF(Z, &mt LS(Z) Z, KP_R KP_N)
 
         COMBO_DEF(N0, &kp N0, KP_E KP_T KP_SPACE)
         COMBO_DEF(N1, &kp N1, KP_E KP_O KP_SPACE)
