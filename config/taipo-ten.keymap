@@ -19,7 +19,7 @@
 
 #define COMBO_DEF(NAME, BINDINGS, KEYPOS_LIST) \
     combo_##NAME { \
-        timeout-ms = <100>; \
+        timeout-ms = <200>; \
         bindings = <BINDINGS>; \
         key-positions = <KEYPOS_LIST>; \
         layers = <0>; \
@@ -40,6 +40,10 @@
                 &kp LSHIFT       &kp A       &kp S       &kp D       &kp BSPC
             >;
         };
+    };
+
+    &mt {
+        tapping-term-ms = <400>;
     };
  
     combos {
