@@ -3,13 +3,21 @@ if SHIELD_taipo_ten_left
 
     # Name must be less than 16 characters long!
     config ZMK_KEYBOARD_NAME
-        default "Taipo Ten"
+        default "Taipo Ten Left"
 
-    config ZMK_SPLIT_ROLE_CENTRAL
-        default y
+    # config ZMK_SPLIT_ROLE_CENTRAL
+    #     default y
 
-    config ZMK_USB
-        default y
+    # config ZMK_USB
+    #     default y
+
+    endif
+
+if SHIELD_taipo_ten_right
+
+    # Name must be less than 16 characters long!
+    config ZMK_KEYBOARD_NAME
+        default "Taipo Ten Right"
 
     endif
 
@@ -18,7 +26,11 @@ if SHIELD_taipo_ten_left || SHIELD_taipo_ten_right
     config ZMK_BLE
         default y
 
-    config ZMK_SPLIT
+    # config ZMK_SPLIT
+    #     default y
+
+    config ZMK_USB
         default y
 
     endif
+
