@@ -19,10 +19,10 @@
 
 #define COMBO_DEF(NAME, BINDINGS, KEYPOS_LIST) \
     combo_##NAME { \
-        timeout-ms = <200>; \
+        timeout-ms = <100>; \
         bindings = <BINDINGS>; \
         key-positions = <KEYPOS_LIST>; \
-        layers = <0>; \
+        layers = <0 1>; \
     };
 
 &mt {
