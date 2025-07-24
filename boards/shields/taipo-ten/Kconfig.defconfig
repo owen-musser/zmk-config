@@ -33,4 +33,3 @@ if SHIELD_taipo_ten_left || SHIELD_taipo_ten_right
         default y
 
     endif
-

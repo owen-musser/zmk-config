@@ -89,7 +89,7 @@
         COMBO_DEF(GT,   &kp GT,   KP_R KP_BSPC)
         COMBO_DEF(HASH,        &kp HASH,      KP_R KP_I KP_BSPC)
         COMBO_DEF(CARET,      &kp CARET,      KP_R KP_T KP_BSPC) 
-        COMBO_DEF(ASTERISK,    &kp ASTERISK,  KP_A KP_N KP_BSPC)
+        COMBO_DEF(ASTERISK,    &kp ASTERISK,  KP_S KP_E KP_BSPC)
         COMBO_DEF(DLLR,        &kp DLLR,      KP_R KP_E KP_BSPC) 
         COMBO_DEF(BACKSLASH,      &kp BACKSLASH,    KP_S KP_T KP_SPACE)
         COMBO_DEF(PIPE,        &kp PIPE,      KP_S KP_T KP_BSPC)
